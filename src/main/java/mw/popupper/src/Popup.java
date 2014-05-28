@@ -15,25 +15,23 @@ public class Popup {
         this.view = view;
         this.controller = controller;
 
+        view.setModelAndController(this);
+        controller.setModelAndView(this);
+
         setupModel();
         setupView();
         setupController();
     }
 
-    protected void setupModel() { }
+    protected void setupModel() {
+        model.addTimerListener(controller);
+    }
 
     protected void setupView() {
-        view.setModelAndController(this);
         view.setupUI();
     }
 
-    protected void setupController() {
-        controller.setModelAndView(this);
-    }
-
-    public void pop() {
-        view.setVisible(true);
-    }
+    protected void setupController() { }
 
     public PopupModel getModel() {
         return model;
@@ -45,5 +43,9 @@ public class Popup {
 
     public PopupController getController() {
         return controller;
+    }
+
+    public boolean isUsing() {
+        return model.isUsing();
     }
 }

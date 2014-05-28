@@ -5,21 +5,23 @@ package mw.popupper.src;
  *
  * @author Getaji
  */
-public interface PopupBuilder {
+public class PopupBuilder {
 
-    public default PopupModel getModel() {
+    public static final PopupBuilder INSTANCE = new PopupBuilder();
+
+    public PopupModel getModel() {
         return new PopupModel();
     }
 
-    public default PopupView getView() {
+    public PopupView getView() {
         return new PopupView();
     }
 
-    public default PopupController getController() {
+    public PopupController getController() {
         return new PopupController();
     }
 
-    public default final Popup build() {
+    public Popup build() {
         PopupModel model = getModel();
         PopupView view = getView();
         PopupController controller = getController();
