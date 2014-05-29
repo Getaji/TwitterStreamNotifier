@@ -20,5 +20,6 @@ public class PopupController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         view.setVisible(false);
+        model.getViewer().poll(view);
     }
 }

@@ -32,8 +32,10 @@ public class PopupModel {
     private int index;
     private boolean isUsing = true;
     private final Timer timer = new Timer(2000, null);
+    private QueueViewer viewer;
 
-    public PopupModel() {
+    public PopupModel(QueueViewer viewer) {
+        this.viewer = viewer;
         timer.setRepeats(false);
     }
 
@@ -207,5 +209,9 @@ public class PopupModel {
 
     public void onStartTimer() {
         timer.start();
+    }
+
+    public QueueViewer getViewer() {
+        return viewer;
     }
 }

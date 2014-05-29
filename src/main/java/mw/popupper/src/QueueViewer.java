@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * javadoc here.
@@ -13,15 +15,14 @@ import java.awt.*;
 public class QueueViewer extends JWindow {
 
     private final JPanel panel = new JPanel();
+    private final Map<JComponent, JPanel> components = new HashMap<>();
 
     public QueueViewer() {
-        //setUndecorated(true);
         setBackground(ComponentSupporter.COLOR_CLEANNESS);
         setLayout(new BorderLayout());
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
         setFocusable(false);
-        //panel.setOpaque(false);
         panel.setBackground(ComponentSupporter.COLOR_CLEANNESS);
         panel.setOpaque(true);
         add(panel);
@@ -39,17 +40,23 @@ public class QueueViewer extends JWindow {
         wrapPanel.setOpaque(true);
         spread(wrapPanel, 10, 10);
         panel.add(wrapPanel);
+        components.put(component, wrapPanel);
         pack();
     }
 
     public JComponent poll(JComponent component) {
-        panel.remove(component);
+        panel.remove(components.get(component));
+        components.remove(component);
 //        if (component.getBorder() instanceof CompoundBorder) {
 //            Border border = ((CompoundBorder) component.getBorder()).getInsideBorder();
 //            component.setBorder(border);
 //        }
         pack();
         return component;
+    }
+
+    public void poll(int index) {
+        panel.remove(index);
     }
 
     public Border createEmptyBorder(int margin) {

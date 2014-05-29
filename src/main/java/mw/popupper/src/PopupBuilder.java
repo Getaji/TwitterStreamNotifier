@@ -9,8 +9,8 @@ public class PopupBuilder {
 
     public static final PopupBuilder INSTANCE = new PopupBuilder();
 
-    public PopupModel getModel() {
-        return new PopupModel();
+    public PopupModel getModel(int index, QueueViewer viewer) {
+        return new PopupModel(viewer);
     }
 
     public PopupView getView() {
@@ -21,8 +21,8 @@ public class PopupBuilder {
         return new PopupController();
     }
 
-    public Popup build() {
-        PopupModel model = getModel();
+    public Popup build(int index, QueueViewer viewer) {
+        PopupModel model = getModel(index, viewer);
         PopupView view = getView();
         PopupController controller = getController();
         Popup popup = new Popup(model, view, controller);

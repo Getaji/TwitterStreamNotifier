@@ -32,7 +32,7 @@ public class PopupManager {
     protected synchronized Popup ensure(PopupBuilder builder) {
         Popup popup = getUnusedPopup();
         if (popup == null) {
-            popup = builder.build();
+            popup = builder.build(popups.size(), viewer);
             popups.add(popup);
         }
         return popup;
