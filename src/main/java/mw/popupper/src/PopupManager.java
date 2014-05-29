@@ -63,6 +63,9 @@ public class PopupManager {
         model.setTitle(profile.getTitle());
         model.setText(profile.getText());
 
+        model.setFontTitle(profile.getFontTitle());
+        model.setFontText(profile.getFontText());
+
         popup.getView().setupData();
     }
 

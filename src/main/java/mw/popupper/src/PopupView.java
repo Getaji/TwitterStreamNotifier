@@ -67,9 +67,15 @@ public class PopupView extends JPanel {
 
     public void setupData() {
         labelIcon.setIcon(model.getIcon());
+        labelIconLeftTop.setIcon(model.getIconLeftTop());
+        labelIconRightTop.setIcon(model.getIconRightTop());
+        labelIconLeftBottom.setIcon(model.getIconLeftBottom());
+        labelIconRightBottom.setIcon(model.getIconRightBottom());
         labelTitle.setText(model.getTitle());
+        labelTitle.setFont(model.getFontTitle());
         labelTitle.setForeground(model.getColorTitle());
         labelText.setText(model.getText());
+        labelText.setFont(model.getFontText());
         labelText.setForeground(model.getColorText());
         setBorder(new LineBorder(model.getColorBorder()));
         setBackground(model.getColorBackground());

@@ -2,6 +2,7 @@ package mw.popupper.src;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.MalformedURLException;
 
 /**
  * javadoc here.
@@ -23,6 +24,9 @@ public class PopupProfile {
     private String title;
     private String text;
 
+    private Font fontTitle;
+    private Font fontText;
+
     public PopupProfile() {
     }
 
@@ -40,12 +44,20 @@ public class PopupProfile {
         this.icon = icon;
     }
 
+    public void setIconFromUrl(String url) throws MalformedURLException {
+        this.icon = ImageSupporter.loadImageIcon(url);
+    }
+
     public Icon getIconLeftTop() {
         return iconLeftTop;
     }
 
     public void setIconLeftTop(Icon iconLeftTop) {
         this.iconLeftTop = iconLeftTop;
+    }
+
+    public void setIconLeftTopFromUrl(String url) throws MalformedURLException {
+        this.iconLeftTop = ImageSupporter.loadImageIcon(url);
     }
 
     public Icon getIconLeftBottom() {
@@ -56,12 +68,20 @@ public class PopupProfile {
         this.iconLeftBottom = iconLeftBottom;
     }
 
+    public void setIconLeftBottomFromUrl(String url) throws MalformedURLException {
+        this.iconLeftBottom = ImageSupporter.loadImageIcon(url);
+    }
+
     public Icon getIconRightTop() {
         return iconRightTop;
     }
 
     public void setIconRightTop(Icon iconRightTop) {
         this.iconRightTop = iconRightTop;
+    }
+
+    public void setIconRightTopFromUrl(String url) throws MalformedURLException {
+        this.iconRightTop = ImageSupporter.loadImageIcon(url);
     }
 
     public Icon getIconRightBottom() {
@@ -71,6 +91,10 @@ public class PopupProfile {
     public void setIconRightBottom(Icon iconRightBottom) {
         this.iconRightBottom = iconRightBottom;
     }
+
+    public void setIconRightBottomFromUrl(String url) throws MalformedURLException {
+        this.iconRightBottom = ImageSupporter.loadImageIcon(url);
+    }
     
     public void setIcons(Icon icon, Icon iconLeftTop, Icon iconLeftBottom, Icon iconRightTop, Icon iconRightBottom) {
         this.icon = icon;
@@ -78,6 +102,16 @@ public class PopupProfile {
         this.iconLeftBottom = iconLeftBottom;
         this.iconRightTop = iconRightTop;
         this.iconRightBottom = iconRightBottom;
+    }
+
+    public void setIconsFromUrl(String url, String urlLeftTop,
+                                String urlLeftBottom, String urlRightTop,
+                                String urlRightBottom) throws MalformedURLException {
+        setIconFromUrl(url);
+        setIconLeftTopFromUrl(urlLeftTop);
+        setIconLeftBottomFromUrl(urlLeftBottom);
+        setIconRightTopFromUrl(urlRightTop);
+        setIconRightBottomFromUrl(urlLeftBottom);
     }
 
     public Color getColorBorder() {
@@ -133,5 +167,29 @@ public class PopupProfile {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Font getFontTitle() {
+        return fontTitle;
+    }
+
+    public void setFontTitle(Font fontTitle) {
+        this.fontTitle = fontTitle;
+    }
+
+    public void setFontTitleFromName(String name, int style, int size) {
+        this.fontTitle = new Font(name, style, size);
+    }
+
+    public Font getFontText() {
+        return fontText;
+    }
+
+    public void setFontText(Font fontText) {
+        this.fontText = fontText;
+    }
+
+    public void setFontTextFromName(String name, int style, int size) {
+        this.fontText = new Font(name, style, size);
     }
 }

@@ -25,6 +25,8 @@ public class PopupModel {
     private Icon iconLeftBottom;
     private Icon iconRightTop;
     private Icon iconRightBottom;
+    private Font fontTitle;
+    private Font fontText;
 
     private String title = "TITLE";
     private String text = "Hello world!";
@@ -83,7 +85,7 @@ public class PopupModel {
         return colorBackground;
     }
 
-//    public Color getForegroundColor() {
+    //    public Color getForegroundColor() {
 //        return foregroundColor;
 //    }
 //
@@ -193,6 +195,22 @@ public class PopupModel {
 
     public void setIconRightBottom(Icon iconRightBottom) {
         this.iconRightBottom = iconRightBottom;
+    }
+
+    public Font getFontText() {
+        return fontText;
+    }
+
+    public void setFontText(Font fontText) {
+        this.fontText = fontText;
+    }
+
+    public Font getFontTitle() {
+        return fontTitle;
+    }
+
+    public void setFontTitle(Font fontTitle) {
+        this.fontTitle = fontTitle;
     }
 
     public void setTitle(String title) {
