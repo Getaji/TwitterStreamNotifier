@@ -17,10 +17,10 @@ public class PopupView extends JPanel {
     private final JPanel panelIcon = new JPanel();
     private final JLabel labelIcon = new JLabel();
     private final JPanel panelMiniIcons = new JPanel();
-    private final JLabel labelIconLeftTop = new JLabel("┏");
-    private final JLabel labelIconLeftBottom = new JLabel("┗");
-    private final JLabel labelIconRightTop = new JLabel("┓");
-    private final JLabel labelIconRightBottom = new JLabel("┛");
+    private final JLabel labelIconLeftTop = new JLabel();
+    private final JLabel labelIconLeftBottom = new JLabel();
+    private final JLabel labelIconRightTop = new JLabel();
+    private final JLabel labelIconRightBottom = new JLabel();
     private final JPanel panelText = new JPanel();
     private final JLabel labelTitle = new JLabel();
     private final JLabel labelText = new JLabel();
@@ -48,8 +48,8 @@ public class PopupView extends JPanel {
         panelIcon.setPreferredSize(dimensionIcon);
         panelIcon.setLayout(null);
         panelIcon.setOpaque(false);
-        panelIcon.add(labelIcon);
         panelIcon.add(panelMiniIcons);
+        panelIcon.add(labelIcon);
         labelIcon.setBounds(0, 0, model.getWidthIcon(), model.getHeightIcon());
         panelMiniIcons.setBounds(0, 0, model.getWidthIcon(), model.getHeightIcon());
         panelMiniIcons.setLayout(new GridLayout(2, 2));
