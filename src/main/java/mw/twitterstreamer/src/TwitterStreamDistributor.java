@@ -26,7 +26,6 @@ public class TwitterStreamDistributor {
         Annotation[] annotations = method.getDeclaredAnnotations();
         for (Annotation annotation : annotations) {
             if (annotation instanceof Receiver) {
-                System.out.println(annotation);
                 return ((Receiver) annotation).value();
             }
         }
