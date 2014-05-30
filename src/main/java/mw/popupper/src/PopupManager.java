@@ -24,7 +24,7 @@ public class PopupManager {
 
     public void push(PopupProfile profile, PopupBuilder builder) {
         Popup popup = ensure(builder);
-        setupProfileData(popup, profile);
+        popup.setupProfileData(profile);
         viewer.offer(popup.getView());
         popup.getView().setVisible(true);
     }
@@ -49,22 +49,7 @@ public class PopupManager {
     public void setupProfileData(Popup popup, PopupProfile profile) {
         PopupModel model = popup.getModel();
 
-        model.setIcon(profile.getIcon());
-        model.setIconLeftTop(profile.getIconLeftTop());
-        model.setIconRightTop(profile.getIconRightTop());
-        model.setIconLeftBottom(profile.getIconLeftBottom());
-        model.setIconRightBottom(profile.getIconRightBottom());
 
-        model.setColorBackground(profile.getColorBackground());
-        model.setColorBorder(profile.getColorBorder());
-        model.setColorTitle(profile.getColorTitle());
-        model.setColorText(profile.getColorText());
-
-        model.setTitle(profile.getTitle());
-        model.setText(profile.getText());
-
-        model.setFontTitle(profile.getFontTitle());
-        model.setFontText(profile.getFontText());
 
         popup.getView().setupData();
     }

@@ -9,8 +9,8 @@ import java.awt.*;
  */
 public class ComponentSupporter {
     public static final Color COLOR_CLEANNESS = new Color(0, 0, 0, 0);
-    public static final Font FONT_MEIRYO_BOLD_14PT = new Font("Meiryo", Font.BOLD, 14);
-    public static final Font FONT_MEIRYO_12PT = new Font("Meiryo", Font.PLAIN, 12);
+    public static final Font FONT_MEIRYO_UI_BOLD_13PT = new Font("Meiryo UI", Font.BOLD, 14);
+    public static final Font FONT_MEIRYO_UI_12PT = new Font("Meiryo UI", Font.PLAIN, 12);
 
     public static Component addAll(Container target, Component... components) {
         for (Component component : components) {

@@ -9,11 +9,18 @@ public class Popup {
     private final PopupModel model;
     private final PopupView view;
     private final PopupController controller;
+    private final ModelDataSetter<?, ?> modelDataSetter;
 
     public Popup(PopupModel model, PopupView view, PopupController controller) {
+        this(model, view, controller, new ModelDataSetter<>(model, null));
+    }
+
+    public Popup(PopupModel model, PopupView view, PopupController controller, ModelDataSetter setter) {
         this.model = model;
         this.view = view;
         this.controller = controller;
+
+        this.modelDataSetter = setter;
 
         view.setModelAndController(this);
         controller.setModelAndView(this);
@@ -47,5 +54,10 @@ public class Popup {
 
     public boolean isUsing() {
         return model.isUsing();
+    }
+
+    public void setupProfileData(PopupProfile profile) {
+        modelDataSetter.setData(profile);
+        view.setupData();
     }
 }

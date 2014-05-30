@@ -1,5 +1,7 @@
 package mw.popupper.src;
 
+import mw.util.DefaultWrap;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -25,11 +27,11 @@ public class PopupModel {
     private Icon iconLeftBottom;
     private Icon iconRightTop;
     private Icon iconRightBottom;
-    private Font fontTitle = ComponentSupporter.FONT_MEIRYO_BOLD_14PT;
-    private Font fontText = ComponentSupporter.FONT_MEIRYO_12PT;
+    private DefaultWrap<Font> fontTitle = new DefaultWrap<>(ComponentSupporter.FONT_MEIRYO_UI_BOLD_13PT);
+    private DefaultWrap<Font> fontText = new DefaultWrap<>(ComponentSupporter.FONT_MEIRYO_UI_12PT);
 
-    private String title = "TITLE";
-    private String text = "Hello world!";
+    private String title;
+    private String text;
 
     private int index;
     private boolean isUsing = true;
@@ -201,20 +203,20 @@ public class PopupModel {
         this.iconRightBottom = iconRightBottom;
     }
 
-    public Font getFontText() {
-        return fontText;
-    }
-
-    public void setFontText(Font fontText) {
-        this.fontText = fontText;
-    }
-
     public Font getFontTitle() {
-        return fontTitle;
+        return fontTitle.get();
     }
 
     public void setFontTitle(Font fontTitle) {
-        this.fontTitle = fontTitle;
+        this.fontTitle.setValueIfNonNull(fontTitle);
+    }
+
+    public Font getFontText() {
+        return fontText.get();
+    }
+
+    public void setFontText(Font fontText) {
+        this.fontText.setValueIfNonNull(fontText);
     }
 
     public void setTitle(String title) {
