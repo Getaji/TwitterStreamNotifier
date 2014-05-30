@@ -44,20 +44,18 @@ public class PopupView extends JPanel {
         panelText.add(labelTitle, BorderLayout.NORTH);
         panelText.add(labelText, BorderLayout.CENTER);
 
-        Dimension dimensionIcon = toDim(model.getWidthIcon(), model.getHeightIcon());
-        panelIcon.setPreferredSize(dimensionIcon);
+        panelIcon.setPreferredSize(toDim(model.getWidthIcon(), model.getHeightIcon()));
         panelIcon.setLayout(null);
         panelIcon.setOpaque(false);
         panelIcon.add(panelMiniIcons);
         panelIcon.add(labelIcon);
-        labelIcon.setBounds(0, 0, model.getWidthIcon(), model.getHeightIcon());
-        panelMiniIcons.setBounds(0, 0, model.getWidthIcon(), model.getHeightIcon());
+        labelIcon.setBounds(model.getIconRectangle());
+        panelMiniIcons.setBounds(model.getIconRectangle());
         panelMiniIcons.setLayout(new GridLayout(2, 2));
         panelMiniIcons.setOpaque(false);
-        panelMiniIcons.add(labelIconLeftTop);
-        panelMiniIcons.add(labelIconRightTop);
-        panelMiniIcons.add(labelIconLeftBottom);
-        panelMiniIcons.add(labelIconRightBottom);
+        ComponentSupporter.addAll(panelMiniIcons,
+                labelIconLeftTop, labelIconRightTop,
+                labelIconLeftBottom, labelIconRightBottom);
         setAlignment(labelIcon, JLabel.CENTER, JLabel.CENTER);
         setAlignment(labelIconLeftTop, JLabel.LEFT, JLabel.TOP);
         setAlignment(labelIconRightTop, JLabel.RIGHT, JLabel.TOP);
@@ -100,7 +98,7 @@ public class PopupView extends JPanel {
         super.setVisible(visible);
         model.setUsing(visible);
         if (visible) {
-            model.onStartTimer();
+            model.onRestartTimer();
         } else {
             getParent().remove(this);
         }

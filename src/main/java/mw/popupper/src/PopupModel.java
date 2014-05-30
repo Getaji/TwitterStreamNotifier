@@ -19,21 +19,21 @@ public class PopupModel {
     private Color colorBorder = Color.BLACK;
     private Color colorTitle = Color.BLACK;
     private Color colorText = Color.BLACK;
-    private Color colorBackground = Color.RED;
+    private Color colorBackground = Color.WHITE;
     private Icon icon;
     private Icon iconLeftTop;
     private Icon iconLeftBottom;
     private Icon iconRightTop;
     private Icon iconRightBottom;
-    private Font fontTitle;
-    private Font fontText;
+    private Font fontTitle = ComponentSupporter.FONT_MEIRYO_BOLD_14PT;
+    private Font fontText = ComponentSupporter.FONT_MEIRYO_12PT;
 
     private String title = "TITLE";
     private String text = "Hello world!";
 
     private int index;
     private boolean isUsing = true;
-    private final Timer timer = new Timer(2000, null);
+    private final Timer timer = new Timer(5000, null);
     private QueueViewer viewer;
 
     public PopupModel(QueueViewer viewer) {
@@ -67,6 +67,10 @@ public class PopupModel {
 
     public int getHeightIcon() {
         return heightIcon;
+    }
+
+    public Rectangle getIconRectangle() {
+        return new Rectangle(0, 0, getWidthIcon(), getHeightIcon());
     }
 
     public Color getColorBorder() {
@@ -227,6 +231,14 @@ public class PopupModel {
 
     public void onStartTimer() {
         timer.start();
+    }
+
+    public void onRestartTimer() {
+        timer.restart();
+    }
+
+    public void onStopTimer() {
+        timer.stop();
     }
 
     public QueueViewer getViewer() {

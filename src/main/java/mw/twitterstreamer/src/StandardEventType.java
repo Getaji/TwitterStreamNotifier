@@ -7,7 +7,8 @@ package mw.twitterstreamer.src;
  */
 public enum StandardEventType implements EventType {
 
-    ON_STATUS("on_status")
+    ON_STATUS("on_status"),
+    ON_FAVORITE("on_favorite")
     ;
 
     private final String name;

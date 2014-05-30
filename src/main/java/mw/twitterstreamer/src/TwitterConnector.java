@@ -10,7 +10,7 @@ import twitter4j.conf.ConfigurationBuilder;
  *
  * @author Getaji
  */
-class TwitterConnector {
+public class TwitterConnector {
     private final Twitter twitter;
     private final ConfigurationBuilder configurationBuilder;
     private RequestToken requestToken;

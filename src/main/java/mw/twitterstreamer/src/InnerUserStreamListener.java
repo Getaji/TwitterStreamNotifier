@@ -27,7 +27,7 @@ class InnerUserStreamListener implements UserStreamListener {
 
     @Override
     public void onFavorite(User user, User user2, Status status) {
-        //
+        distributor.fire(StandardEventType.ON_FAVORITE, user, user2, status);
     }
 
     @Override
