@@ -53,6 +53,8 @@ public class ModelDataSetter<M extends PopupModel, P extends PopupProfile> {
         model.setFontTitle(profile.getFontTitle());
         model.setFontText(profile.getFontText());
 
+        model.setTimerDelay(profile.getTimerDelay());
+
         return model;
     }
 }

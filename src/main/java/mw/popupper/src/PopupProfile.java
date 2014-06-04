@@ -27,6 +27,8 @@ public class PopupProfile {
     private Font fontTitle;
     private Font fontText;
 
+    private int timerDelay;
+
     public PopupProfile() {
     }
 
@@ -191,5 +193,13 @@ public class PopupProfile {
 
     public void setFontTextFromName(String name, int style, int size) {
         this.fontText = new Font(name, style, size);
+    }
+
+    public int getTimerDelay() {
+        return timerDelay;
+    }
+
+    public void setTimerDelay(int timerDelay) {
+        this.timerDelay = timerDelay;
     }
 }

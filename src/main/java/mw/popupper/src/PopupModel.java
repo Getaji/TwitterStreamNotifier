@@ -35,7 +35,8 @@ public class PopupModel {
 
     private int index;
     private boolean isUsing = true;
-    private final Timer timer = new Timer(5000, null);
+    private DefaultWrap<Integer> timerDelay = new DefaultWrap<>(5000);
+    private final Timer timer = new Timer(timerDelay.get(), null);
     private QueueViewer viewer;
 
     public PopupModel(QueueViewer viewer) {
@@ -241,6 +242,14 @@ public class PopupModel {
 
     public void onStopTimer() {
         timer.stop();
+    }
+
+    public int getTimerDelay() {
+        return timerDelay.get();
+    }
+
+    public void setTimerDelay(int delay) {
+        timerDelay.setValueIfNonNull(delay);
     }
 
     public QueueViewer getViewer() {
