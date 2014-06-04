@@ -250,6 +250,7 @@ public class PopupModel {
 
     public void setTimerDelay(int delay) {
         timerDelay.setValueIfNonNull(delay);
+        timer.setDelay(delay);
     }
 
     public QueueViewer getViewer() {
