@@ -1,6 +1,8 @@
 TwitterStreamNotifier
 =====================
 
+◆◆開発は終了しました◆◆
+
 TwitterのStreamをいい感じに処理するAPIとその通知API
 
 ## 進捗
